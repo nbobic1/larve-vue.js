@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/moja',[NoviController::class,'NoviControllerAction']);
+Route::post('/moja',[NoviController::class,'dd']);
  
 Route::resource('/flights', FlightController::class)
         ->missing(function (Request $request) {

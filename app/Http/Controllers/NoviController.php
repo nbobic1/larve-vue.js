@@ -11,8 +11,14 @@ use Illuminate\Http\Request;
 class NoviController extends Controller
 {
     //
-    public function NoviControllerAction():String
+    public function NoviControllerAction(Request $request):String
     {
-        return "moja";
+        return $request->mm;
+    }
+    public function dd(Request $request):String
+    {
+      $input = $request->all();
+      error_log($input['ddd']);
+      print_r($input);
     }
 }

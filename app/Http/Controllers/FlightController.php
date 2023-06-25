@@ -12,6 +12,8 @@ class FlightController extends Controller
     {
         error_log("dsfdsafaf");
         $novi=new Flight();
+        error_log($request->all()['value']);
+        $novi->parametar=$request->all()['value'];
         $novi->save();
         $nek8=Flight::all()->map(function (Flight $flight){return $flight->id;})->toArray();
        
@@ -20,6 +22,17 @@ class FlightController extends Controller
     }
     public function create(Request $request)
     {
-        return view('moj');
+        error_log("dsfdsafaf");
+        $novi=new Flight();
+        $novi->parametar="heheheh";
+        $novi->save();
+        $nek8=Flight::all()->map(function (Flight $flight){return $flight->id;})->toArray();
+       
+        $svi=implode(', ', $nek8);
+        return $svi;
     }
+public function index(Request $request)
+{
+    return Flight::all();
+}
 }
